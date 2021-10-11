@@ -1,1 +1,10 @@
-<p>product-card works!</p>
+<div class="card h-100 px-3">
+   <img [src]="productItem.image" class="product-img-top" alt="..." />
+   <div class="product-body px-5">
+     <h5 class="product-title">{{ productItem.title | uppercase }}</h5>
+     <p class="product-text">
+       {{ productItem.description}}
+     </p>
+     <button class="btn btn-primary d-block mx-5">addToCart</button>
+   </div>
+ </div>
