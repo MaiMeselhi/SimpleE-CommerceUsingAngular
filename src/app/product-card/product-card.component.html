@@ -5,6 +5,7 @@
      <p class="product-text">
        {{ productItem.description}}
      </p>
-     <button class="btn btn-primary d-block mx-5">addToCart</button>
+     <button class="btn btn-primary d-block m-3" [routerLink]="['/product', productItem.id]">view details</button>
+     <button class="btn btn-primary d-block m-3">addToCart</button>
    </div>
  </div>

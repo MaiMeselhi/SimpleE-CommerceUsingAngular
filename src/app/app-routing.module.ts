@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import {ProductListComponent} from './product-list/product-list.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
+import {ProductDetailsComponent} from './product-details/product-details.component'
 const routes: Routes = [
   {
     path: '',
-    component:ProductListComponent,
+    redirectTo :'products',
+    pathMatch : 'full',
   },
   {
     path: 'products',
@@ -19,7 +21,11 @@ const routes: Routes = [
   {
     path: 'register',
     component:RegisterComponent,
-  }
+  },
+  {
+    path: 'product/:id',
+    component:ProductDetailsComponent,
+  },
 ];
 
 @NgModule({

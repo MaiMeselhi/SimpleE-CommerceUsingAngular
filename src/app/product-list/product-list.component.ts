@@ -253,4 +253,5 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }
