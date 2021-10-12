@@ -169,19 +169,15 @@
         [ngClass]="registerFormControls.confirmpassword.touched && !registerFormControls.confirmpassword.valid"
       />
     </div>
-
+    <div *ngIf="registerFormControls.confirmpassword.errors.required">Password is required.</div>
+    <div *ngIf="registerFormControls.confirmpassword.errors.confirmedValidator">Password and Confirm Password must be match.</div>
     <div
       *ngIf="
       registerFormControls.confirmpassword.touched &&
        !registerFormControls.confirmpassword.valid
        "
     >
-    <small
-    class="text-danger"
-    *ngIf="registerFormControls.confirm_password.errors.confirmedValidator"
-  >
-  Password and Confirm Password must be match
-  </small>
+
 
       <small
         class="text-danger"

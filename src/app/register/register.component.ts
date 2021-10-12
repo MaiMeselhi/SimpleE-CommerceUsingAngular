@@ -37,7 +37,7 @@ registerForm : any;
     [Validators.required, Validators.minLength(4), Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/)]],
    confirmpassword: [
       '',
-[Validators.required, Validators.minLength(4), Validators.pattern('')]]
+    [Validators.required, Validators.minLength(4), Validators.pattern('')]]
 
 
 
