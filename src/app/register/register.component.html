@@ -1,1 +1,204 @@
-<p>register works!</p>
+<div class="container my-5">
+   <form [formGroup]="registerForm" (ngSubmit)="submitReactiveForm()">
+     <div class="mb-3">
+       <label for="Name" class="form-label">Name</label>
+       <input
+         type="text"
+         class="form-control"
+         id="Name"
+         name="Name"
+         formControlName="Name"
+         [ngClass]="registerFormControls.Name.touched && !registerFormControls.Name.valid"
+       />
+     </div>
+
+     <div
+       *ngIf="
+       registerFormControls.Name.touched &&
+        !registerFormControls.Name.valid
+        "
+     >
+       <small
+         class="text-danger"
+         *ngIf="registerFormControls.Name.errors.required"
+       >
+         This field is required
+       </small>
+       <small
+         class="text-danger"
+         *ngIf="registerFormControls.Name.errors.minlength"
+       >
+         Min. Length is 4
+       </small>
+     </div>
+
+
+
+     <div class="mb-3">
+     <label for="Email" class="form-label">Email</label>
+     <input
+       type="email"
+       class="form-control"
+       id="Email"
+       name="Email"
+       formControlName="Email"
+       [ngClass]="registerFormControls.Email.touched && !registerFormControls.Email.valid"
+     />
+   </div>
+
+   <div
+     *ngIf="
+     registerFormControls.Email.touched &&
+      !registerFormControls.Email.valid
+      "
+   >
+     <small
+       class="text-danger"
+       *ngIf="registerFormControls.Email.errors.required"
+     >
+       This field is required
+     </small>
+       <small
+        class="text-danger"
+        *ngIf="registerFormControls.userName.errors?.pattern"
+      >
+       Error chech your email format.
+
+      </small>
+     <small
+       class="text-danger"
+       *ngIf="registerFormControls.Email.errors.minlength"
+     >
+       Min. Length is 4
+     </small>
+   </div>
+
+
+
+   <div class="mb-3">
+      <label for="userName" class="form-label">User Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="userName"
+        name="userName"
+        formControlName="userName"
+        [ngClass]="registerFormControls.userName.touched && !registerFormControls.userName.valid "
+      />
+    </div>
+
+    <div
+      *ngIf="
+      registerFormControls.userName.touched &&
+       !registerFormControls.userName.valid
+       "
+    >
+      <small
+        class="text-danger"
+        *ngIf="registerFormControls.userName.errors.required"
+      >
+        This field is required.
+      </small>
+      <small
+        class="text-danger"
+        *ngIf="registerFormControls.userName.errors?.pattern"
+      >
+       invalid syntax.
+
+      </small>
+
+      <small
+      class="text-danger"
+      *ngIf="registerFormControls.userName.errors.minlength"
+    >
+      Min. Length is 4.
+    </small>
+
+    </div>
+
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        formControlName="password"
+        [ngClass]="registerFormControls.password.touched && !registerFormControls.password.valid"
+      />
+    </div>
+
+    <div
+      *ngIf="
+      registerFormControls.password.touched &&
+       !registerFormControls.password.valid
+       "
+    >
+      <small
+        class="text-danger"
+        *ngIf="registerFormControls.password.errors.required"
+      >
+        This field is required
+      </small>
+            <small
+        class="text-danger"
+        *ngIf="registerFormControls.userName.errors?.pattern"
+      >
+       invalid syntax.
+
+      </small>
+      <small
+        class="text-danger"
+        *ngIf="registerFormControls.password.errors.minlength"
+      >
+        Min. Length is 4
+      </small>
+    </div>
+
+
+
+    <div class="mb-3">
+      <label for="confirmpassword" class="form-label">Confirm Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="confirmpassword"
+        name="confirmpassword"
+        formControlName="confirmpassword"
+        [ngClass]="registerFormControls.confirmpassword.touched && !registerFormControls.confirmpassword.valid"
+      />
+    </div>
+
+    <div
+      *ngIf="
+      registerFormControls.confirmpassword.touched &&
+       !registerFormControls.confirmpassword.valid
+       "
+    >
+    <small
+    class="text-danger"
+    *ngIf="registerFormControls.confirm_password.errors.confirmedValidator"
+  >
+  Password and Confirm Password must be match
+  </small>
+
+      <small
+        class="text-danger"
+        *ngIf="registerFormControls.confirmpassword.errors.required"
+      >
+        This field is required
+      </small>
+      <small
+        class="text-danger"
+        *ngIf="registerFormControls.confirmpassword.errors.minlength"
+      >
+        Min. Length is 4
+      </small>
+    </div>
+
+     <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+   </form>
+
+   <p>Don`i have an account ? <a  routerLink="/login">Login</a></p>
+ </div>
