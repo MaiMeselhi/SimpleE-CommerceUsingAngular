@@ -16,7 +16,13 @@ import { ConfirmedValidator } from '../confiremed.validators';
 })
 export class RegisterComponent implements OnInit {
 registerForm : any;
-
+addressForm:any;
+public addresses: any[] = [{
+  address: '',
+  street: '',
+  city: '',
+  country: ''
+}];
   constructor(private fb: FormBuilder) {}
 
 
@@ -57,5 +63,18 @@ get registerFormControls() {
 submitReactiveForm() {
   console.log(this.registerForm);
 }
-
+addAddress() {
+  this.addresses.push({
+    address: '',
+    street: '',
+    city: '',
+    country: ''
+  });
+}
+removeAddress(i: number) {
+  this.addresses.splice(i, 1);
+}
+logValue(){
+  console.log(this.addressForm);
+}
 }

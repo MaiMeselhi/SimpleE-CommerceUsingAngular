@@ -16,3 +16,10 @@ button{
    display: block;
    margin: auto;
 }
+
+.confirm{
+   color:green;
+}
+.ignore{
+   color:red;
+}

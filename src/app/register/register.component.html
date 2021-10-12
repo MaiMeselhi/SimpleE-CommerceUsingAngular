@@ -169,8 +169,9 @@
         [ngClass]="registerFormControls.confirmpassword.touched && !registerFormControls.confirmpassword.valid"
       />
     </div>
-    <div *ngIf="registerFormControls.confirmpassword.errors.required">Password is required.</div>
-    <div *ngIf="registerFormControls.confirmpassword.errors.confirmedValidator">Password and Confirm Password must be match.</div>
+    <div class="ignore" *ngIf="registerFormControls.confirmpassword.errors?.confirmedValidator">Password and Confirm Password must be match.</div>
+    <div class="confirm" *ngIf="registerFormControls.confirmpassword.valid">confirmed.</div>
+
     <div
       *ngIf="
       registerFormControls.confirmpassword.touched &&
@@ -198,3 +199,31 @@
 
    <p>Don`i have an account ? <a  routerLink="/login">Login</a></p>
  </div>
+
+
+ <form #addressForm="ngForm" class="container mt-3" (ngSubmit)="logValue()">
+   <!-- some code here - see full code at the end of this tutorial -->
+    <section *ngFor="let address of addresses; let i = index;">
+       <!-- input fields inside the *ngFor -->
+          <label>Address</label>
+          <input type="text"
+            name="address_{{i}}"/>
+          <label>Street</label>
+          <input type="text"
+            name="street_{{i}}"/>
+          <label>City</label>
+          <input type="text"
+            name="city_{{i}}"/>
+          <label>Country</label>
+
+
+    </section>
+    <!-- Add button -->
+ <button type="button" (click)="addAddress()">Add Address</button>
+ <section class="container border mb-4 p-3" *ngFor="let address of addresses; let i = index;">
+
+   <button type="button" class="btn btn-danger btn-sm" (click)="removeAddress(i)">Remove</button>
+
+</section>
+ <!-- ngFor code -->
+  </form>
