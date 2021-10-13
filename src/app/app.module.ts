@@ -10,6 +10,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     ProductCardComponent,
     LoginComponent,
     RegisterComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
