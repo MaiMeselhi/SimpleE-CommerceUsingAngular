@@ -1,1 +1,42 @@
-<p>cart works!</p>
+
+   <div class="container">
+       <div class="card-table">
+           <div class="cart-product">
+               <table class="table table-responsive">
+                   <thead>
+                       <tr>
+                           <th>Product.No</th>
+                           <th>Product Name</th>
+                           <th>Product Image</th>
+                           <th>Description</th>
+                           <th>Price</th>
+                           <th>Quantity</th>
+                           <th>Total</th>
+                           <th>Action</th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr *ngFor="let product of productsList; let i = index">
+                           <td>{{i+1}}</td>
+                           <td>{{product.title}}</td>
+                           <td><img style="width: 120px;" src="{{product.image}}" alt=""></td>
+                           <td style="width: 25%;">{{product.description}}</td>
+                           <th style="width: 12%;">{{product.price}}</th>
+                           <td style="width: 12%;">{{product.quantity}}</td>
+                           <td style="width: 12%;">{{product.total}}</td>
+                           <td>
+                               <button (click)="removeItem(product)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td colspan="4"></td>
+
+                           <td><button class ="previous "routerLink="/products">SHOP NOW</button></td>
+
+                       </tr>
+                   </tbody>
+               </table>
+           </div>
+       </div>
+   </div>
+

@@ -3,7 +3,7 @@
      <div *ngFor="let product of productsList" class="col">
        <app-product-card
          [productItem]="product"
-         (sendProduct)="receiveProduct()"
+         (sendProduct)="receiveProduct($event)"
        ></app-product-card>
      </div>
    </div>

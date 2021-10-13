@@ -1,4 +1,5 @@
 import { Component, OnInit , Input,Output , EventEmitter} from '@angular/core';
+
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -7,7 +8,7 @@ import { Component, OnInit , Input,Output , EventEmitter} from '@angular/core';
 export class ProductCardComponent implements OnInit {
   @Input() productItem : any;
   @Output() sendProduct= new EventEmitter<any>();
-  constructor() { }
+  constructor( ) { }
 
   ngOnInit(): void {
   }
@@ -15,7 +16,6 @@ export class ProductCardComponent implements OnInit {
   sendDataToParent(){
     console.log(this.productItem)
     this.sendProduct.emit(this.productItem);
-
-
   }
+
 }
