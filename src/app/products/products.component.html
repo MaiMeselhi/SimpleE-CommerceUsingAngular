@@ -1,1 +1,13 @@
-<p>products works!</p>
+<div class="container my-5">
+  <div class="product row row-cols-1 row-cols-md-1 g-4 ">
+    <ul>
+      <li *ngFor="let product of products">
+         <h4>{{product.title}}</h4>
+         <p>{{product.description}}</p>
+        <img src="{{ product.image }}" />
+        <p class="price">price: {{product.price}}</p>
+        <button class="btn btn-primary d-block m-3">view details</button>
+        <button class="btn btn-primary d-block m-3">addToCart</button>
+    </ul>
+  </div>
+</div>
