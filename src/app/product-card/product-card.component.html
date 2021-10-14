@@ -1,14 +1,14 @@
 <div class="container">
-  <div class="card h-100 ">
+  <div class="card  ">
     <img [src]="productItem.image" class="product-img-top" alt="..." />
     <div class="product-body ">
       <h5 class="product-title">{{ productItem.title | uppercase }}</h5>
       <p class="product-text">
         {{ productItem.description}}
       </p>
-      <button class="btn btn-primary d-block m-3" [routerLink]="['/product', productItem.id]">view details</button>
-      <button class="btn btn-primary d-block m-3 "  (click)="sendDataToParent()">addToCart</button>
-        <button (click)="sendStarProduct()"></button>
+      <button class="btn  m-3" [routerLink]="['/product', productItem.id]">view details</button>
+      <button class="btn  m-3 "  (click)="sendDataToParent()">addToCart</button>
+      <button class="btn"(click)="clickStarProduct()">add to wish List</button>
 
     </div>
 

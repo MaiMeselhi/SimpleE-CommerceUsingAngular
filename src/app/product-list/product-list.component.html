@@ -1,27 +1,30 @@
-<div class="page d-flex">
-  <div class="container my-5">
-    <div class="productCard row row-cols-1 row-cols-md-3 g-4">
-      <div *ngFor="let product of productsList" class="col">
-        <app-product-card
-          [productItem]="product"
-          (sendProduct)="receiveProduct($event)"
 
+  <div class="container">
+    <div class="items d-flex">
+      <div class="productCard">
+        <div *ngFor="let product of productsList; let i = index" class="col">
+          <app-product-card
+            [productItem]="product"
+            (sendProduct)="receiveProduct($event)"
+            (sendToWishList)="addToWishList(product,i)"
 
-        ></app-product-card>
+          ></app-product-card>
+        </div>
       </div>
+
+    <div class="wishList">
+     <div class="row row-cols-1 row-cols-md-3 g-4">
+
+
+        <app-wish-list
+        >
+        </app-wish-list>
+
+
+     </div>
     </div>
   </div>
-  <div class="wishList container my-5">
-   <div class="row row-cols-1 row-cols-md-3 g-4">
-
-      <p>wish list</p>
-      <app-wish-list
-      >
-      </app-wish-list>
-
-
-   </div>
  </div>
 
 
-</div>
+

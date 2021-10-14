@@ -1,5 +1,6 @@
 import { Component, OnInit , Input,Output , EventEmitter} from '@angular/core';
 
+
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
@@ -8,8 +9,9 @@ import { Component, OnInit , Input,Output , EventEmitter} from '@angular/core';
 export class ProductCardComponent implements OnInit {
   @Input() productItem : any;
   @Output() sendProduct= new EventEmitter<any>();
-  @Output() sendStar =new EventEmitter<any>();
-  constructor( ) { }
+  @Output() sendToWishList=new EventEmitter<any>();
+
+  constructor(    ) { }
 
   ngOnInit(): void {
   }
@@ -18,8 +20,9 @@ export class ProductCardComponent implements OnInit {
     console.log(this.productItem)
     this.sendProduct.emit(this.productItem);
   }
-  sendStarProduct (){
-    this.sendStar.emit(this.productItem)
+  clickStarProduct (){
+    this.sendToWishList.emit(this.productItem.title)
+    console.log(this.productItem.image)
   }
 
 }

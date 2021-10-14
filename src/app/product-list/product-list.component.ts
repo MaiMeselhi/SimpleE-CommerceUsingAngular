@@ -4,6 +4,8 @@ import { ProductsService } from '../products.service';
 import { CountProductsService } from '../count-products.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { CartService } from '../cart-service.service';
+import { Store } from '@ngrx/store';
+import { addToWishList } from '../store/star/wishList.ction';
 
 
 @Component({
@@ -14,7 +16,8 @@ import { CartService } from '../cart-service.service';
 export class ProductListComponent implements OnInit {
 
   productsList:any ;
-
+  wishListProducts: any = [];
+  selectedProduct: any = [];
 
   @ViewChild(ProductCardComponent) childComponent: any;
    productsCounter :any;
@@ -24,7 +27,8 @@ export class ProductListComponent implements OnInit {
     private router: Router,
     private productsService:ProductsService,
     private CountProductsService: CountProductsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private store: Store
   ) {}
 
   ngOnInit(): void {
@@ -58,7 +62,31 @@ export class ProductListComponent implements OnInit {
 
   }
 
+  addToWishList(product: any, index: number) {
+    if (this. wishListProducts.filter((e: any) => e.id === product.id).length) {
+      this.selectedProduct = this.selectedProduct.filter((e: any) => e !== index);
+      let newWishList = this. wishListProducts.filter(
+        (e: any) => e.id !== product.id
+      );
+      this.selectedProduct= newWishList;
+      this.store.dispatch(
+        addToWishList({
+          products: newWishList.map((e: any) => e),
+          count: newWishList.length,
+        })
+      );
+    } else {
+      this.selectedProduct .push(index);
+      this. wishListProducts.push(product);
+      this.store.dispatch(
+        addToWishList({
+        products: this. wishListProducts.map((e: any) => e),
+          count: this. wishListProducts.length,
+        })
+      );
+    }
 
+  }
 
 }
 

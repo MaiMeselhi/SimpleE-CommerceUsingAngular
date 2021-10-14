@@ -1,0 +1,42 @@
+.product-img-top{
+   width: 40%;
+   height: 60%;
+
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+.d-flex{
+   display: flex;
+   flex-wrap:nowrap;
+   justify-content:space-between;
+}
+.productCard {
+   width:50%;
+   margin: auto;
+
+
+}
+.card {
+ flex-direction: row;
+}
+.wishList{
+   width: 50%;
+}
+.container{
+   width:90%;
+   margin:0 auto;
+}
+
+h5{
+   padding-top: 1.5rem;
+}
+
+.btn{
+   background-color: purple;
+   color:#fff;
+
+}
