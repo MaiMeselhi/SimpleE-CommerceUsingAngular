@@ -5,6 +5,7 @@ import { CountProductsService } from '../count-products.service';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { CartService } from '../cart-service.service';
 
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -18,6 +19,7 @@ export class ProductListComponent implements OnInit {
   @ViewChild(ProductCardComponent) childComponent: any;
    productsCounter :any;
   dataFromChild: any;
+
   constructor(
     private router: Router,
     private productsService:ProductsService,
@@ -57,6 +59,8 @@ export class ProductListComponent implements OnInit {
   }
 
 
+
 }
+
 
 
