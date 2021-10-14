@@ -1,0 +1,23 @@
+<div class="wrapper px-4">
+   <div class="row">
+     <div class="col">
+       <h2>Wish List</h2>
+     </div>
+     <div class="col-5">
+       <div class="count">{{ count }}</div>
+     </div>
+   </div>
+   <div class="wish__card pb-2 row" *ngFor="let product of listPtoducts">
+     <div class="col">
+       <img
+         [src]="product.image"git add .
+         alt="poduct Image"
+
+       />
+     </div>
+     <div class="col">
+       <h5 class="card-title">{{ product.title }}</h5>
+       <p class="card-text">{{ product.price | price }}</p>
+     </div>
+   </div>
+ </div>
