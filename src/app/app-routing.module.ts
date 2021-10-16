@@ -7,6 +7,7 @@ import {ProductDetailsComponent} from './product-details/product-details.compone
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
 import { WishListComponent } from './wish-list/wish-list.component';
+import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {
     path: '',
@@ -17,11 +18,13 @@ const routes: Routes = [
     path: 'products',
     component: ProductListComponent,
   },
+  {
+    path: 'wishList',
+    component: WishListComponent,
+    canActivate: [AuthGuard]
+  },
 
-{
-  path: 'onlineProducts',
-  component: ProductsComponent,
-},
+
   {
     path: 'login',
     component: LoginComponent,
