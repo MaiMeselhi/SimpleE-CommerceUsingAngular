@@ -10,7 +10,7 @@ export class ProductCardComponent implements OnInit {
   @Input() productItem : any;
   @Output() sendProduct= new EventEmitter<any>();
   @Output() sendToWishList=new EventEmitter<any>();
-
+  @Output() sendDetails= new EventEmitter<any>();
   constructor(    ) { }
 
   ngOnInit(): void {
@@ -23,6 +23,10 @@ export class ProductCardComponent implements OnInit {
   clickStarProduct (){
     this.sendToWishList.emit(this.productItem.title)
     console.log(this.productItem.image)
+  }
+
+  sendDetailsProduct () {
+    this.sendDetails.emit(this.productItem)
   }
 
 }

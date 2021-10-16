@@ -7,7 +7,6 @@ import { CartService } from '../cart-service.service';
 import { Store } from '@ngrx/store';
 import { addToWishList } from '../store/star/wishList.ction';
 
-
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -87,8 +86,5 @@ export class ProductListComponent implements OnInit {
     }
 
   }
-
 }
-
-
 

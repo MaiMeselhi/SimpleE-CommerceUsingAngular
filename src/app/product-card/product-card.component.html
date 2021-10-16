@@ -6,7 +6,7 @@
       <p class="product-text">
         {{ productItem.description}}
       </p>
-      <button class="btn  m-3" [routerLink]="['/product', productItem.id]">view details</button>
+      <button class="btn  m-3"  [routerLink]="['/product', productItem.id]">view details</button>
       <button class="btn  m-3 "  (click)="sendDataToParent()">addToCart</button>
       <button class="btn"(click)="clickStarProduct()">add to wish List</button>
 

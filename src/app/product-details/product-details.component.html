@@ -1,1 +1,15 @@
-<p>product-details works!</p>
+
+
+
+<div class="wrapper px-4">
+    <div class="row">
+
+      <img [src]=" productDetails?.image" class="card-img-top mt-3 cart-img" >
+      <div class="card-body justify-content-center text-center">
+          <h5 class="card-title">{{  productDetails?.title }}</h5>
+          <p class="card-text">{{  productDetails.category }}</p>
+          <p class="card-text">{{  productDetails?.description }}</p>
+      </div>
+
+    </div>
+  </div>
