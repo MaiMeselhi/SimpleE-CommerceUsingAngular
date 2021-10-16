@@ -1,1 +1,229 @@
-<p>register works!</p>
+<div class="container my-5">
+   <form [formGroup]="registerForm" (ngSubmit)="submitReactiveForm()">
+     <div class="mb-3">
+       <label for="Name" class="form-label">Name</label>
+       <input
+         type="text"
+         class="form-control"
+         id="Name"
+         name="Name"
+         formControlName="Name"
+         [ngClass]="registerFormControls.Name.touched && !registerFormControls.Name.valid"
+       />
+     </div>
+
+     <div
+       *ngIf="
+       registerFormControls.Name.touched &&
+        !registerFormControls.Name.valid
+        "
+     >
+       <small
+         class="text-danger"
+         *ngIf="registerFormControls.Name.errors.required"
+       >
+         This field is required
+       </small>
+       <small
+         class="text-danger"
+         *ngIf="registerFormControls.Name.errors.minlength"
+       >
+         Min. Length is 4
+       </small>
+     </div>
+
+
+
+     <div class="mb-3">
+     <label for="Email" class="form-label">Email</label>
+     <input
+       type="email"
+       class="form-control"
+       id="Email"
+       name="Email"
+       formControlName="Email"
+       [ngClass]="registerFormControls.Email.touched && !registerFormControls.Email.valid"
+     />
+   </div>
+
+   <div
+     *ngIf="
+     registerFormControls.Email.touched &&
+      !registerFormControls.Email.valid
+      "
+   >
+     <small
+       class="text-danger"
+       *ngIf="registerFormControls.Email.errors.required"
+     >
+       This field is required
+     </small>
+       <small
+        class="text-danger"
+        *ngIf="registerFormControls.userName.errors?.pattern"
+      >
+       Error chech your email format.
+
+      </small>
+     <small
+       class="text-danger"
+       *ngIf="registerFormControls.Email.errors.minlength"
+     >
+       Min. Length is 4
+     </small>
+   </div>
+
+
+
+   <div class="mb-3">
+      <label for="userName" class="form-label">User Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="userName"
+        name="userName"
+        formControlName="userName"
+        [ngClass]="registerFormControls.userName.touched && !registerFormControls.userName.valid "
+      />
+    </div>
+
+    <div
+      *ngIf="
+      registerFormControls.userName.touched &&
+       !registerFormControls.userName.valid
+       "
+    >
+      <small
+        class="text-danger"
+        *ngIf="registerFormControls.userName.errors.required"
+      >
+        This field is required.
+      </small>
+      <small
+        class="text-danger"
+        *ngIf="registerFormControls.userName.errors?.pattern"
+      >
+       invalid syntax.
+
+      </small>
+
+      <small
+      class="text-danger"
+      *ngIf="registerFormControls.userName.errors.minlength"
+    >
+      Min. Length is 4.
+    </small>
+
+    </div>
+
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        formControlName="password"
+        [ngClass]="registerFormControls.password.touched && !registerFormControls.password.valid"
+      />
+    </div>
+
+    <div
+      *ngIf="
+      registerFormControls.password.touched &&
+       !registerFormControls.password.valid
+       "
+    >
+      <small
+        class="text-danger"
+        *ngIf="registerFormControls.password.errors.required"
+      >
+        This field is required
+      </small>
+            <small
+        class="text-danger"
+        *ngIf="registerFormControls.userName.errors?.pattern"
+      >
+       invalid syntax.
+
+      </small>
+      <small
+        class="text-danger"
+        *ngIf="registerFormControls.password.errors.minlength"
+      >
+        Min. Length is 4
+      </small>
+    </div>
+
+
+
+    <div class="mb-3">
+      <label for="confirmpassword" class="form-label">Confirm Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="confirmpassword"
+        name="confirmpassword"
+        formControlName="confirmpassword"
+        [ngClass]="registerFormControls.confirmpassword.touched && !registerFormControls.confirmpassword.valid"
+      />
+    </div>
+    <div class="ignore" *ngIf="registerFormControls.confirmpassword.errors?.confirmedValidator">Password and Confirm Password must be match.</div>
+    <div class="confirm" *ngIf="registerFormControls.confirmpassword.valid">confirmed.</div>
+
+    <div
+      *ngIf="
+      registerFormControls.confirmpassword.touched &&
+       !registerFormControls.confirmpassword.valid
+       "
+    >
+
+
+      <small
+        class="text-danger"
+        *ngIf="registerFormControls.confirmpassword.errors.required"
+      >
+        This field is required
+      </small>
+      <small
+        class="text-danger"
+        *ngIf="registerFormControls.confirmpassword.errors.minlength"
+      >
+        Min. Length is 4
+      </small>
+    </div>
+
+     <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+   </form>
+
+   <p>Don`i have an account ? <a  routerLink="/login">Login</a></p>
+ </div>
+
+
+ <form #addressForm="ngForm" class="container mt-3" (ngSubmit)="logValue()">
+   <!-- some code here - see full code at the end of this tutorial -->
+    <section *ngFor="let address of addresses; let i = index;">
+       <!-- input fields inside the *ngFor -->
+          <label>Address</label>
+          <input type="text"
+            name="address_{{i}}"/>
+          <label>Street</label>
+          <input type="text"
+            name="street_{{i}}"/>
+          <label>City</label>
+          <input type="text"
+            name="city_{{i}}"/>
+          <label>Country</label>
+
+
+    </section>
+    <!-- Add button -->
+ <button type="button" (click)="addAddress()">Add Address</button>
+ <section class="container border mb-4 p-3" *ngFor="let address of addresses; let i = index;">
+
+   <button type="button" class="btn btn-danger btn-sm" (click)="removeAddress(i)">Remove</button>
+
+</section>
+ <!-- ngFor code -->
+  </form>

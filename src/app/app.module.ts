@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -7,8 +8,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductCardComponent } from './product-card/product-card.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
@@ -17,6 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducer } from './store/star/wishList.reducer';
 import { RequestInterceptor } from './request.interceptor';
 import { LoaderComponent } from './loader/loader.component';
+import { AuthmoduleModule } from './authmodule/authmodule.module';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,12 @@ import { LoaderComponent } from './loader/loader.component';
     NavbarComponent,
     ProductListComponent,
     ProductCardComponent,
-    LoginComponent,
-    RegisterComponent,
     ProductDetailsComponent,
     ProductsComponent,
     CartComponent,
     WishListComponent,
-    LoaderComponent
+    LoaderComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -40,6 +40,7 @@ import { LoaderComponent } from './loader/loader.component';
     HttpClientModule,
     StoreModule,
     StoreModule.forRoot({ WishList: reducer }),
+    AuthmoduleModule,
 
   ],
   providers: [

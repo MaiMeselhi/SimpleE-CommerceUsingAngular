@@ -1,1 +1,59 @@
-<p>login works!</p>
+<div class="container">
+   <form #loginForm="ngForm" (ngSubmit)="submitloginForm()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email"
+         class="form-control"
+         id="emailAddress"
+          aria-describedby="emailAddress"
+           name="emailAddress"
+           placeholder="Enter email"
+           required
+           minlength="4"
+           pattern=" /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/"
+           maxlength="20"
+           ngModel>
+      </div>
+      <div *ngIf="loginForm.value.touched && !loginForm.value.valid">
+        <small class="text-danger" *ngIf="loginForm.value.errors.required">
+          This field is required
+        </small>
+        <small class="text-danger" *ngIf="loginForm.value.errors.minlength">
+          Min. Length is 4
+        </small>
+        <small class="text-danger" *ngIf="loginForm.value.errors.pattern">
+         Error email format doen`t match
+        </small>
+      </div>
+   <div class="form-group">
+      <label for="exampleInputEmail1">Password</label>
+      <input type="password"
+       class="form-control"
+       id="password"
+        aria-describedby="password"
+         name="password"
+         placeholder="Enter password"
+         required
+         minlength="4"
+         maxlength="20"
+         pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+         ngModel>
+    </div>
+   <div *ngIf="loginForm.value.touched && !loginForm.value.valid">
+      <small class="text-danger" *ngIf="loginForm.value.errors.required">
+        This field is required
+      </small>
+      <small class="text-danger" *ngIf="loginForm.value.errors.minlength">
+        Min. Length is 4
+      </small>
+
+    </div>
+      <button type="submit" class="btn btn-primary"[disabled]="!loginForm.valid">Login</button>
+    </form>
+    <p>Don`i have an account ? <a  routerLink="/register">register</a></p>
+
+
+
+
+</div>
+
